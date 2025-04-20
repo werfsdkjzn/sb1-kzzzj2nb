@@ -1,5 +1,5 @@
 import React from 'react';
-import { Terminal, Network, ArrowRight, Server } from 'lucide-react';
+import { Terminal, Network, ArrowRight, Server, Command, Shield, BookOpen, Edit, Activity, PenTool as Tool, Search, Layers, Globe, Wifi, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 function App() {
@@ -18,175 +18,249 @@ function App() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Linux Fundamentals Card */}
-          <div className="group relative perspective">
-            <div className="relative preserve-3d group-hover:my-rotate-y-180 w-full duration-1000 h-full">
-              <div className="absolute backface-hidden w-full h-full">
-                <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden h-full border border-zinc-700">
-                  <div className="h-48 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
-                    <Terminal className="w-24 h-24 text-emerald-500" />
-                  </div>
-                  <div className="p-6">
-                    <h2 className="text-2xl font-bold text-white mb-2">Fundamentos do Linux</h2>
-                    <p className="text-gray-400 mb-4">
-                      Domine os fundamentos da linha de comando Linux e administração de sistemas através de aulas interativas.
-                    </p>
-                    <div className="space-y-3 mb-6">
-                      <div className="flex items-center text-sm text-gray-300">
-                        <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
-                          <ArrowRight className="w-3 h-3" />
-                        </span>
-                        Aprenda comandos básicos do Linux
-                      </div>
-                      <div className="flex items-center text-sm text-gray-300">
-                        <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
-                          <ArrowRight className="w-3 h-3" />
-                        </span>
-                        Entenda a navegação no sistema de arquivos
-                      </div>
-                      <div className="flex items-center text-sm text-gray-300">
-                        <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
-                          <ArrowRight className="w-3 h-3" />
-                        </span>
-                        Domine conceitos básicos de administração
-                      </div>
-                    </div>
-                    <Link
-                      to="/linux"
-                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors"
-                    >
-                      Começar Curso
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Link>
-                  </div>
+          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden border border-zinc-700">
+            <div className="h-40 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
+              <Terminal className="w-20 h-20 text-emerald-500" />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-white mb-2">Fundamentos do Linux</h2>
+              <p className="text-gray-400 mb-4">
+                Aprenda os conceitos básicos do Linux e sua importância nos sistemas operacionais.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Introdução ao Linux
+                </div>
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Conceitos básicos
                 </div>
               </div>
-              <div className="absolute my-rotate-y-180 backface-hidden w-full h-full">
-                <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden h-full p-6 border border-zinc-700">
-                  <h3 className="text-xl font-semibold text-white mb-4">Visão Geral do Curso</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-medium text-white">Módulo 1: Introdução</h4>
-                      <p className="text-gray-400 text-sm">Aprenda sobre a importância do Linux e onde ele é usado.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-white">Módulo 2: Primeiros Passos</h4>
-                      <p className="text-gray-400 text-sm">Comece com sua primeira máquina Linux.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-white">Módulo 3: Comandos Básicos</h4>
-                      <p className="text-gray-400 text-sm">Domine comandos essenciais do terminal.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-white">Módulo 4: Sistema de Arquivos</h4>
-                      <p className="text-gray-400 text-sm">Navegue e gerencie arquivos efetivamente.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-white">Módulo 5: Busca de Arquivos</h4>
-                      <p className="text-gray-400 text-sm">Encontre arquivos de forma rápida e eficiente.</p>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <Link
-                      to="/linux"
-                      className="inline-flex items-center justify-center w-full px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors"
-                    >
-                      Iniciar Curso
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              <Link
+                to="/linux"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors w-full justify-center"
+              >
+                Começar Curso
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
             </div>
           </div>
 
-          {/* System Administration Card */}
-          <div className="group relative perspective">
-            <div className="relative preserve-3d group-hover:my-rotate-y-180 w-full duration-1000 h-full">
-              <div className="absolute backface-hidden w-full h-full">
-                <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden h-full border border-zinc-700">
-                  <div className="h-48 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
-                    <Terminal className="w-24 h-24 text-emerald-500" />
-                  </div>
-                  <div className="p-6">
-                    <h2 className="text-2xl font-bold text-white mb-2">Administração de Sistemas</h2>
-                    <p className="text-gray-400 mb-4">
-                      Domine a administração de sistemas Linux com conceitos avançados em gerenciamento de usuários, serviços e segurança.
-                    </p>
-                    <div className="space-y-3 mb-6">
-                      <div className="flex items-center text-sm text-gray-300">
-                        <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
-                          <ArrowRight className="w-3 h-3" />
-                        </span>
-                        Gerenciamento de usuários e permissões
-                      </div>
-                      <div className="flex items-center text-sm text-gray-300">
-                        <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
-                          <ArrowRight className="w-3 h-3" />
-                        </span>
-                        Serviços e processos do sistema
-                      </div>
-                      <div className="flex items-center text-sm text-gray-300">
-                        <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
-                          <ArrowRight className="w-3 h-3" />
-                        </span>
-                        Melhores práticas de segurança
-                      </div>
-                    </div>
-                    <Link
-                      to="/linux2"
-                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors"
-                    >
-                      Iniciar Curso
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Link>
-                  </div>
+          {/* Linux Advanced Card */}
+          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden border border-zinc-700">
+            <div className="h-40 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
+              <Shield className="w-20 h-20 text-emerald-500" />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-white mb-2">Linux Avançado</h2>
+              <p className="text-gray-400 mb-4">
+                Domine conceitos avançados de administração e segurança Linux.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Administração de sistemas
+                </div>
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Segurança básicos de sistemas
                 </div>
               </div>
-              <div className="absolute my-rotate-y-180 backface-hidden w-full h-full">
-                <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden h-full p-6 border border-zinc-700">
-                  <h3 className="text-xl font-semibold text-white mb-4">Tópicos do Curso</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-medium text-white">Módulo 1: Arquitetura do Sistema</h4>
-                      <p className="text-gray-400 text-sm">Mergulhe fundo na arquitetura do sistema Linux.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-white">Módulo 2: Gerenciamento de Usuários</h4>
-                      <p className="text-gray-400 text-sm">Gerenciamento avançado de usuários e permissões.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-white">Módulo 3: Controle de Processos</h4>
-                      <p className="text-gray-400 text-sm">Domine o gerenciamento de serviços e processos.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-white">Módulo 4: Gerenciamento de Pacotes</h4>
-                      <p className="text-gray-400 text-sm">Técnicas avançadas de gerenciamento de software.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-white">Módulo 5: Segurança</h4>
-                      <p className="text-gray-400 text-sm">Implemente medidas robustas de segurança.</p>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <Link
-                      to="/linux2"
-                      className="inline-flex items-center justify-center w-full px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors"
-                    >
-                      Começar Curso
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Link>
-                  </div>
+              <Link
+                to="/linux2"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors w-full justify-center"
+              >
+                Começar Curso
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Linux CLI Basic Card */}
+          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden border border-zinc-700">
+            <div className="h-40 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
+              <Command className="w-20 h-20 text-emerald-500" />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-white mb-2">Linha de Comando Linux</h2>
+              <p className="text-gray-400 mb-4">
+                Domine os comandos essenciais do Linux e aprenda a navegar pelo sistema de arquivos.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Sistema de arquivos Linux
+                </div>
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Comandos básicos
                 </div>
               </div>
+              <Link
+                to="/linux-cli"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors w-full justify-center"
+              >
+                Começar Curso
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Linux CLI Advanced Card */}
+          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden border border-zinc-700">
+            <div className="h-40 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
+              <Terminal className="w-20 h-20 text-emerald-500" />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-white mb-2">Linha de Comando Avançada</h2>
+              <p className="text-gray-400 mb-4">
+                Aprenda conceitos avançados de linha de comando e administração do sistema.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Gerenciamento de serviços
+                </div>
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Administração avançada
+                </div>
+              </div>
+              <Link
+                to="/linux-cli2"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors w-full justify-center"
+              >
+                Começar Curso
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Linux CLI Text Processing Card */}
+          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden border border-zinc-700">
+            <div className="h-40 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
+              <Edit className="w-20 h-20 text-emerald-500" />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-white mb-2">Manipulação de Texto</h2>
+              <p className="text-gray-400 mb-4">
+                Aprenda a editar e manipular texto usando ferramentas poderosas do Linux.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Editores de texto
+                </div>
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Processamento de texto
+                </div>
+              </div>
+              <Link
+                to="/linux-cli3"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors w-full justify-center"
+              >
+                Começar Curso
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Linux CLI Process Management Card */}
+          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden border border-zinc-700">
+            <div className="h-40 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
+              <Activity className="w-20 h-20 text-emerald-500" />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-white mb-2">Processos e Monitoramento</h2>
+              <p className="text-gray-400 mb-4">
+                Aprenda a gerenciar processos, monitorar arquivos e personalizar seu ambiente Bash.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Gerenciamento de processos
+                </div>
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Personalização do Bash
+                </div>
+              </div>
+              <Link
+                to="/linux-cli4"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors w-full justify-center"
+              >
+                Começar Curso
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Linux CLI Tools Card */}
+          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden border border-zinc-700">
+            <div className="h-40 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
+              <Tool className="w-20 h-20 text-emerald-500" />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-white mb-2">Ferramentas Práticas</h2>
+              <p className="text-gray-400 mb-4">
+                Aprenda a usar ferramentas essenciais como Netcat e Socat para testes de rede e segurança.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Netcat e Socat
+                </div>
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Transferência de arquivos
+                </div>
+              </div>
+              <Link
+                to="/linux-cli5"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors w-full justify-center"
+              >
+                Começar Curso
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
             </div>
           </div>
 
           {/* Virtual Machines Card */}
-          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border border-zinc-700">
-            <div className="h-48 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
-              <Server className="w-24 h-24 text-emerald-500" />
+          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden border border-zinc-700">
+            <div className="h-40 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
+              <Server className="w-20 h-20 text-emerald-500" />
             </div>
             <div className="p-6">
               <h2 className="text-2xl font-bold text-white mb-2">Máquinas Virtuais</h2>
@@ -206,16 +280,10 @@ function App() {
                   </span>
                   Ambientes Linux e Windows
                 </div>
-                <div className="flex items-center text-sm text-gray-300">
-                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
-                    <ArrowRight className="w-3 h-3" />
-                  </span>
-                  Desafios práticos de segurança
-                </div>
               </div>
               <Link
                 to="/machines"
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors w-full justify-center"
               >
                 Explorar Máquinas
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -223,10 +291,44 @@ function App() {
             </div>
           </div>
 
+          {/* Network Enumeration Card */}
+          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden border border-zinc-700">
+            <div className="h-40 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
+              <Search className="w-20 h-20 text-emerald-500" />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-white mb-2">Enumeração de Rede</h2>
+              <p className="text-gray-400 mb-4">
+                Aprenda técnicas de varredura de portas e enumeração de serviços de rede.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Varredura de portas
+                </div>
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Enumeração de serviços
+                </div>
+              </div>
+              <Link
+                to="/networking"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors w-full justify-center"
+              >
+                Começar Curso
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
+
           {/* Networking Course Card */}
-          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border border-zinc-700">
-            <div className="h-48 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
-              <Network className="w-24 h-24 text-emerald-500" />
+          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden border border-zinc-700">
+            <div className="h-40 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
+              <Network className="w-20 h-20 text-emerald-500" />
             </div>
             <div className="p-6">
               <h2 className="text-2xl font-bold text-white mb-2">Fundamentos de Redes</h2>
@@ -246,22 +348,153 @@ function App() {
                   </span>
                   Entenda protocolos de rede
                 </div>
-                <div className="flex items-center text-sm text-gray-300">
-                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
-                    <ArrowRight className="w-3 h-3" />
-                  </span>
-                  Domine segurança básica de redes
-                </div>
               </div>
               <Link
                 to="/networking"
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors w-full justify-center"
               >
                 Começar Curso
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
             </div>
           </div>
+
+          {/* Advanced Networking Course Card */}
+          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden border border-zinc-700">
+            <div className="h-40 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
+              <Layers className="w-20 h-20 text-emerald-500" />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-white mb-2">Redes Avançado</h2>
+              <p className="text-gray-400 mb-4">
+                Aprenda sobre modelos OSI/TCP/IP, proxies, endereçamento IP avançado e ferramentas de rede.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Modelos de rede
+                </div>
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Ferramentas avançadas
+                </div>
+              </div>
+              <Link
+                to="/networking2"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors w-full justify-center"
+              >
+                Começar Curso
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Network Protocols Course Card */}
+          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden border border-zinc-700">
+            <div className="h-40 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
+              <Globe className="w-20 h-20 text-emerald-500" />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-white mb-2">Protocolos de Rede</h2>
+              <p className="text-gray-400 mb-4">
+                Domine os principais protocolos de rede, incluindo TCP/UDP, ICMP, e protocolos de segurança.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Protocolos de comunicação
+                </div>
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Segurança e autenticação
+                </div>
+              </div>
+              <Link
+                to="/networking3"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors w-full justify-center"
+              >
+                Começar Curso
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Wireless Networks Course Card */}
+          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden border border-zinc-700">
+            <div className="h-40 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
+              <Wifi className="w-20 h-20 text-emerald-500" />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-white mb-2">Redes Sem Fio</h2>
+              <p className="text-gray-400 mb-4">
+                Aprenda sobre redes sem fio, segurança wireless e protocolos de autenticação.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Tecnologias wireless
+                </div>
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Segurança e criptografia
+                </div>
+              </div>
+              <Link
+                to="/networking4"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors w-full justify-center"
+              >
+                Começar Curso
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Network Security Card */}
+          <div className="bg-zinc-800 rounded-xl shadow-lg overflow-hidden border border-zinc-700">
+            <div className="h-40 bg-gradient-to-br from-zinc-900 to-zinc-800 flex items-center justify-center">
+              <Lock className="w-20 h-20 text-emerald-500" />
+            </div>
+            <div className="p-6">
+              <h2 className="text-2xl font-bold text-white mb-2">Criptografia e Segurança</h2>
+              <p className="text-gray-400 mb-4">
+                Aprenda sobre criptografia, VPNs, autenticação e segurança de rede.
+              </p>
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Criptografia e VPNs
+                </div>
+                <div className="flex items-center text-sm text-gray-300">
+                  <span className="w-4 h-4 rounded-full bg-emerald-900 text-emerald-500 flex items-center justify-center mr-2">
+                    <ArrowRight className="w-3 h-3" />
+                  </span>
+                  Segurança avançada
+                </div>
+              </div>
+              <Link
+                to="/networking5"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-lg hover:from-emerald-700 hover:to-emerald-600 transition-colors w-full justify-center"
+              >
+                Começar Curso
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { Task } from '../types/course';
 
 interface TaskContentProps {
   task: Task;
-  selectedAnswers: string[];
+  selectedAnswers: { [key: number]: string };
   completed: boolean;
   onAnswerSelect: (questionIndex: number, choiceId: string) => void;
   onNext: () => void;
@@ -23,6 +23,13 @@ export default function TaskContent({
   isFirst,
   isLast
 }: TaskContentProps) {
+  const isQuestionEnabled = (questionIndex: number) => {
+    if (questionIndex === 0) return true;
+    const prevQuestion = task.questions[questionIndex - 1];
+    const correctAnswer = prevQuestion.choices.find(choice => choice.correct)?.id;
+    return selectedAnswers[questionIndex - 1] === correctAnswer;
+  };
+
   return (
     <div className="bg-white rounded-xl shadow-lg p-6">
       <div className="flex items-center justify-between mb-6">
@@ -41,47 +48,70 @@ export default function TaskContent({
         <div className="bg-white border border-gray-100 rounded-xl p-4">
           <h3 className="font-semibold text-gray-800 mb-3">Conteúdo:</h3>
           <div className="space-y-3">
-            {task.content.map((paragraph, index) => (
-              <p key={index} className="text-gray-700">
-                {paragraph}
-              </p>
+            {task.content.map((content, index) => (
+              content.startsWith('<table') ? (
+                <div key={index} dangerouslySetInnerHTML={{ __html: content }} />
+              ) : (
+                <p key={index} className="text-gray-700 whitespace-pre-line">
+                  {content}
+                </p>
+              )
             ))}
           </div>
         </div>
 
         <div className="space-y-6">
-          {task.questions.map((question, questionIndex) => (
-            <div key={questionIndex} className="bg-gray-50 p-6 rounded-xl border border-gray-100">
-              <h3 className="font-semibold text-gray-800 mb-4">
-                {question.text}
-              </h3>
-              <div className="space-y-3">
-                {question.choices.map((choice) => {
-                  const isSelected = selectedAnswers.includes(choice.id);
-                  const showCorrect = completed && choice.correct;
-                  
-                  return (
-                    <button
-                      key={choice.id}
-                      onClick={() => onAnswerSelect(questionIndex, choice.id)}
-                      disabled={completed}
-                      className={`w-full text-left p-4 rounded-lg border transition-all ${
-                        isSelected
-                          ? showCorrect
+          {task.questions.map((question, questionIndex) => {
+            const correctAnswer = question.choices.find(choice => choice.correct)?.id;
+            const selectedAnswer = selectedAnswers[questionIndex];
+            const isQuestionCorrect = selectedAnswer === correctAnswer;
+            const enabled = isQuestionEnabled(questionIndex);
+
+            return (
+              <div 
+                key={questionIndex} 
+                className={`bg-gray-50 p-6 rounded-xl border border-gray-100 ${!enabled ? 'opacity-50' : ''}`}
+              >
+                <h3 className="font-semibold text-gray-800 mb-4">
+                  {question.text}
+                  {!enabled && (
+                    <span className="ml-2 text-sm text-gray-500">
+                      (Responda corretamente a questão anterior primeiro)
+                    </span>
+                  )}
+                </h3>
+                <div className="space-y-3">
+                  {question.choices.map((choice) => {
+                    const isSelected = selectedAnswer === choice.id;
+                    const showCorrect = isQuestionCorrect && choice.correct;
+                    
+                    return (
+                      <button
+                        key={choice.id}
+                        onClick={() => {
+                          if (enabled && !isQuestionCorrect) {
+                            if (choice.correct) {
+                              onAnswerSelect(questionIndex, choice.id);
+                            }
+                          }
+                        }}
+                        disabled={isQuestionCorrect || !enabled}
+                        className={`w-full text-left p-4 rounded-lg border transition-all ${
+                          isSelected
                             ? 'bg-green-100 border-green-300'
-                            : 'bg-indigo-100 border-indigo-300'
-                          : 'bg-white border-gray-200 hover:bg-gray-50'
-                      } ${completed ? 'cursor-not-allowed' : ''}`}
-                    >
-                      <span className="font-medium">
-                        {choice.id.toUpperCase()}) {choice.text}
-                      </span>
-                    </button>
-                  );
-                })}
+                            : 'bg-white border-gray-200 hover:bg-gray-50'
+                        } ${(isQuestionCorrect || !enabled) ? 'cursor-not-allowed' : ''}`}
+                      >
+                        <span className="font-medium">
+                          {choice.id.toUpperCase()}) {choice.text}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="flex justify-between pt-4">

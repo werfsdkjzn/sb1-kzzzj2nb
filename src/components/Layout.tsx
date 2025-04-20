@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, Github, Twitter } from 'lucide-react';
+import { Shield, Map, Menu, X, Twitter, MessageCircle as Reddit } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps) {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="bg-black border-b border-zinc-800">
+      <header className="bg-black border-b border-zinc-800 relative z-50">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center space-x-2">
@@ -18,6 +20,15 @@ export default function Layout({ children }: LayoutProps) {
                 Hackerin
               </span>
             </Link>
+            
+            {/* Mobile menu button */}
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden text-gray-300 hover:text-white"
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+
             <nav className="hidden md:flex items-center space-x-6">
               <Link to="/linux" className="text-gray-300 hover:text-white transition-colors">
                 Linux
@@ -28,11 +39,59 @@ export default function Layout({ children }: LayoutProps) {
               <Link to="/machines" className="text-gray-300 hover:text-white transition-colors">
                 Máquinas
               </Link>
+              <Link to="/roadmap" className="text-gray-300 hover:text-white transition-colors flex items-center">
+                <Map className="w-4 h-4 mr-1" />
+                Trilhas
+              </Link>
               <a 
                 href="https://hackerin.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
+              >
+                Visitar Hackerin
+              </a>
+            </nav>
+          </div>
+
+          {/* Mobile menu */}
+          <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden absolute left-0 right-0 top-full bg-black border-b border-zinc-800 px-4 py-4`}>
+            <nav className="flex flex-col space-y-4">
+              <Link 
+                to="/linux" 
+                className="text-gray-300 hover:text-white transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Linux
+              </Link>
+              <Link 
+                to="/networking" 
+                className="text-gray-300 hover:text-white transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Redes
+              </Link>
+              <Link 
+                to="/machines" 
+                className="text-gray-300 hover:text-white transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Máquinas
+              </Link>
+              <Link 
+                to="/roadmap" 
+                className="text-gray-300 hover:text-white transition-colors flex items-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Map className="w-4 h-4 mr-1" />
+                Trilhas
+              </Link>
+              <a 
+                href="https://hackerin.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors inline-block text-center"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Visitar Hackerin
               </a>
@@ -84,25 +143,35 @@ export default function Layout({ children }: LayoutProps) {
                   </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Documentação
-                  </a>
+                  <Link to="/privacy" className="hover:text-white transition-colors">
+                    Política de Privacidade
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Blog
-                  </a>
+                  <Link to="/terms" className="hover:text-white transition-colors">
+                    Termos de Serviço
+                  </Link>
                 </li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold text-white mb-4">Conecte-se</h3>
               <div className="flex space-x-4">
-                <a href="#" className="hover:text-white transition-colors">
-                  <Github className="w-6 h-6" />
-                </a>
-                <a href="#" className="hover:text-white transition-colors">
+                <a 
+                  href="https://x.com/Proffess_X" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-emerald-500 hover:text-emerald-400 transition-colors"
+                >
                   <Twitter className="w-6 h-6" />
+                </a>
+                <a 
+                  href="https://www.reddit.com/r/hackerin/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-emerald-500 hover:text-emerald-400 transition-colors"
+                >
+                  <Reddit className="w-6 h-6" />
                 </a>
               </div>
             </div>
@@ -110,16 +179,16 @@ export default function Layout({ children }: LayoutProps) {
           <div className="mt-8 pt-8 border-t border-zinc-800 text-sm">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p>© 2025 Hackerin. Todos os direitos reservados.</p>
-              <div className="flex space-x-6">
-                <a href="#" className="hover:text-white transition-colors">
+              <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
+                <Link to="/privacy" className="hover:text-white transition-colors">
                   Política de Privacidade
-                </a>
-                <a href="#" className="hover:text-white transition-colors">
+                </Link>
+                <Link to="/terms" className="hover:text-white transition-colors">
                   Termos de Serviço
-                </a>
-                <a href="#" className="hover:text-white transition-colors">
+                </Link>
+                <Link to="/contact" className="hover:text-white transition-colors">
                   Contato
-                </a>
+                </Link>
               </div>
             </div>
           </div>

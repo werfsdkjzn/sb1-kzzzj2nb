@@ -45,15 +45,15 @@ export const linuxTasks2: Task[] = [
     icon: <FileText className="w-6 h-6" />,
     content: [
       "O terminal Linux é uma ferramenta poderosa para interagir com o sistema operacional.",
-      "Alguns comandos básicos essenciais incluem:",
-      "• ls - Lista arquivos e diretórios",
-      "• cd - Muda de diretório",
-      "• pwd - Mostra o diretório atual",
-      "• mkdir - Cria um novo diretório",
-      "• rm - Remove arquivos",
-      "• cp - Copia arquivos",
-      "• mv - Move ou renomeia arquivos",
-      "Dominar estes comandos básicos é o primeiro passo para se tornar proficiente em Linux."
+      "Dominar estes comandos básicos é o primeiro passo para se tornar proficiente em Linux.",
+      "Comandos básicos essenciais incluem:",
+      "• ls - Lista arquivos e diretórios no diretório atual. Use ls -l para mais detalhes ou ls -a para mostrar arquivos ocultos.",
+      "• cd - Muda de diretório. Exemplo: cd Documentos. Use cd .. para voltar um nível.",
+      "• pwd - Mostra o caminho completo do diretório atual, útil para saber onde você está no sistema.",
+      "• mkdir - Cria um novo diretório. Exemplo: mkdir nova_pasta cria uma pasta chamada 'nova_pasta'.",
+      "• rm - Remove arquivos. Use com cuidado. Exemplo: rm arquivo.txt. Para remover diretórios recursivamente, use rm -r pasta/",
+      "• cp - Copia arquivos ou diretórios. Exemplo: cp origem.txt destino.txt. Para copiar pastas, use cp -r pasta1 pasta2.",
+      "• mv - Move ou renomeia arquivos. Exemplo: mv arquivo.txt nova_pasta/ ou mv antigo.txt novo.txt para renomear."
     ],
     questions: [
       {
@@ -83,14 +83,17 @@ export const linuxTasks2: Task[] = [
     icon: <Users className="w-6 h-6" />,
     content: [
       "O Linux é um sistema multiusuário, onde cada usuário pode ter diferentes níveis de acesso.",
+      "Gerenciar usuários e permissões é essencial para manter a organização e a segurança em ambientes Linux.",
+      "As permissões no Linux são divididas em três categorias: proprietário, grupo e outros.",
+      "As permissões controlam quem pode ler, escrever ou executar arquivos.",
+      "Você pode visualizar permissões com o comando ls -l, que mostra o dono, grupo e tipo de acesso.",
       "Comandos importantes para gerenciamento de usuários:",
-      "• useradd - Cria novo usuário",
-      "• usermod - Modifica usuário existente",
-      "• userdel - Remove usuário",
-      "• passwd - Define senha",
-      "• chmod - Altera permissões de arquivo",
-      "• chown - Altera proprietário do arquivo",
-      "As permissões no Linux são divididas em três categorias: proprietário, grupo e outros."
+      "• adduser - Cria novo usuário com diretório home e configurações básicas",
+      "• usermod - Modifica atributos de um usuário existente",
+      "• deluser - Remove um usuário do sistema",
+      "• passwd - Define ou altera a senha de um usuário",
+      "• chmod - Altera permissões de leitura (r), escrita (w) e execução (x)",
+      "• chown - Altera o proprietário e o grupo de um arquivo ou diretório"
     ],
     questions: [
       {
@@ -120,13 +123,13 @@ export const linuxTasks2: Task[] = [
     icon: <Cog className="w-6 h-6" />,
     content: [
       "Processos são programas em execução no sistema Linux.",
+      "Entender como gerenciar processos é crucial para manter um sistema Linux saudável.",
       "Comandos importantes para gerenciamento de processos:",
-      "• ps - Lista processos em execução",
-      "• top - Monitor de processos em tempo real",
-      "• kill - Termina um processo",
-      "• systemctl - Gerencia serviços do sistema",
-      "• service - Controla serviços (versão mais antiga)",
-      "Entender como gerenciar processos é crucial para manter um sistema Linux saudável."
+      "• ps - Lista processos em execução. Use ps aux para ver todos os processos com detalhes como PID, usuário e uso de recursos.",
+      "• top - Monitor de processos em tempo real. Exibe o uso da CPU, memória e permite encerrar processos diretamente.",
+      "• kill - Termina um processo com base no seu PID. Exemplo: kill 1234. Use kill -9 para forçar a finalização.",
+      "• systemctl - Gerencia serviços do sistema em distribuições que usam systemd. Exemplo: systemctl status nginx para ver o status de um serviço.",
+      "• service - Comando mais antigo usado para iniciar, parar ou reiniciar serviços. Exemplo: service apache2 restart."
     ],
     questions: [
       {
@@ -155,14 +158,14 @@ export const linuxTasks2: Task[] = [
     objective: "Aprender a instalar e gerenciar software no Linux.",
     icon: <Database className="w-6 h-6" />,
     content: [
-      "O Linux usa gerenciadores de pacotes para instalar e atualizar software.",
-      "Comandos comuns em sistemas baseados em Debian:",
-      "• apt update - Atualiza lista de pacotes",
-      "• apt install - Instala novos pacotes",
-      "• apt remove - Remove pacotes",
-      "• apt upgrade - Atualiza pacotes instalados",
-      "• dpkg - Gerenciador de pacotes de baixo nível",
-      "Diferentes distribuições Linux podem usar diferentes gerenciadores de pacotes."
+      "O Linux usa gerenciadores de pacotes para instalar, remover e atualizar software no sistema.",
+      "Diferentes distribuições Linux podem usar diferentes gerenciadores de pacotes.",
+      "Comandos comuns em sistemas baseados em Debian (como Ubuntu):",
+      "• apt update - Atualiza a lista de pacotes disponíveis nos repositórios",
+      "• apt install - Instala novos pacotes no sistema",
+      "• apt remove - Remove pacotes instalados",
+      "• apt upgrade - Atualiza os pacotes instalados para as versões mais recentes",
+      "• dpkg - Gerencia pacotes .deb de forma manual, útil para instalação direta de arquivos"
     ],
     questions: [
       {
@@ -229,14 +232,14 @@ export const linuxTasks2: Task[] = [
     icon: <Shield className="w-6 h-6" />,
     content: [
       "A segurança é um aspecto crucial do Linux.",
+      "Manter um sistema Linux seguro requer atenção constante e boas práticas.",
       "Conceitos importantes de segurança:",
-      "• Controle de acesso",
-      "• Firewall (iptables/ufw)",
-      "• Atualizações de segurança",
-      "• Logs do sistema",
-      "• Backup de dados",
-      "• Criptografia",
-      "Manter um sistema Linux seguro requer atenção constante e boas práticas."
+      "• Controle de acesso - Garante que apenas usuários autorizados possam acessar arquivos e recursos",
+      "• Firewall (iptables/ufw) - Controla o tráfego de rede, permitindo ou bloqueando conexões",
+      "• Atualizações de segurança - Corrigem vulnerabilidades conhecidas no sistema e nos aplicativos",
+      "• Logs do sistema - Registram atividades e ajudam a identificar comportamentos suspeitos",
+      "• Backup de dados - Protege informações importantes contra perda ou corrupção",
+      "• Criptografia - Protege dados sensíveis em repouso (disco) ou em trânsito (comunicação)"
     ],
     questions: [
       {
@@ -251,8 +254,8 @@ export const linuxTasks2: Task[] = [
       {
         text: "Onde são armazenados os logs do sistema?",
         choices: [
-          { id: "a", text: "/var/log", correct: true },
-          { id: "b", text: "/etc/logs", correct: false },
+          { id: "a", text: "/etc/logs", correct: false },
+          { id: "b", text: "/var/log", correct: true },
           { id: "c", text: "/usr/log", correct: false },
           { id: "d", text: "/log", correct: false }
         ]

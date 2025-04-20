@@ -90,7 +90,7 @@ export default function NetworkingCourse() {
             />
           </div>
         ) : (
-          <CongratsScreen onReset={resetCourse} />
+          <CongratsScreen onReset={resetCourse} nextCourse="/networking2" />
         )}
       </main>
     </div>
