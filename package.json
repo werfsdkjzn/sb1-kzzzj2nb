@@ -3,12 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://werfsdkjzn.github.io/jhfgjgfu/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "export": "vite build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
