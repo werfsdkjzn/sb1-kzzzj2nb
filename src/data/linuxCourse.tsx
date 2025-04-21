@@ -8,7 +8,7 @@ export const linuxTasks: Task[] = [
     objective: "Compreender a importância do Linux e onde ele é usado.",
     icon: <Terminal className="w-6 h-6" />,
     content: [
-      "Lux é um sistema operacional de código aberto usado em vários campos, de smartphones a supercomputadores.",
+      "Linux é um sistema operacional de código aberto usado em vários campos, de smartphones a supercomputadores.",
       "Distribuições comuns do Linux incluem Ubuntu e Debian.",
       "Linux é leve e alimenta sistemas críticos como sistemas de entretenimento, automotivo e sensores industriais.",
       "O kernel do Linux é o núcleo do sistema e gerencia recursos como memória, processos e dispositivos.",
